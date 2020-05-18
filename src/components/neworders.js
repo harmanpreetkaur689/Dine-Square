@@ -202,7 +202,7 @@ class neworders extends Component {
                                                 }
                                                 </div>
 
-                                                {(this.props.firebase.authUser != null) ?
+                                                {(this.props.userData != null) ?
                                                     <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop" style={{ height: 40 }} onClick={() => { this.addItem(menuKey) }}>Add item</button> :
                                                     <button type="button" className="btn disabled btn-primary" data-toggle="modal" data-target="#staticBackdrop" style={{ height: 40 }}>Login to add item</button>
                                                 }</div>
