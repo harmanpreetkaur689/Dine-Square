@@ -16,8 +16,8 @@ class Navigation extends Component {
             <div className="row justify-content-center justify-content-sm-end">
                 {this.props.user ? <NavAuth authUser={this.props.user} username={this.props.username} /> :
                     <div className="btn-group">
-                        <Link className="btn btn-dark" to="Login">LOGIN</Link>
-                        <Link className="btn btn-dark" to="SignUp">SIGNUP</Link>
+                        <Link className="btn btn-dark" to="/Login">LOGIN</Link>
+                        <Link className="btn btn-dark" to="/SignUp">SIGNUP</Link>
                     </div>}
             </div>
 

@@ -153,63 +153,69 @@ class neworders extends Component {
         this.filter()
     }
     dataFromCloud = () => {
+
         if (this.state.menu == null) {
 
         }
         else {
-            return (<div>
-                <div className="card bg-light">
-                    <div className="card-body ">
-                        <div className="d-flex">
-                            <div className="col">Name</div>
-                            <div className="col">Vendor</div>
-                            <div className="col">Category</div>
-                            <div className="col">size and price</div>
-                            <div className="">Add To Cart</div>
+            return (
+                <div>
+                    <div className="card bg-light">
+                        <div className="card-body ">
+                            <div className="d-flex">
+                                <div className="col">Name</div>
+                                <div className="col">Vendor</div>
+                                <div className="col">Category</div>
+                                <div className="col">size and price</div>
+                                <div className="">Add To Cart</div>
+                            </div>
                         </div>
-                    </div>
-                    <div >
-                        {Object.keys(this.state.menu).map((menuKey) => (
-                            //return
-                            <div>
-                                <div className="card bg-light">
-                                    <div className="card-body ">
-                                        <div className="d-flex">
-                                            <div className="col">{this.state.menu[menuKey].name}</div>
-                                            <div className="col">{this.state.menu[menuKey].vendor}</div>
-                                            <div className="col">
+                        <div >
+                            {Object.keys(this.state.menu).map((menuKey) => (
+                                //return
+                                <div>
+                                    <div className="card bg-light">
+                                        <div className="card-body ">
+                                            <div className="d-flex">
+                                                <div className="col">{this.state.menu[menuKey].name}</div>
+                                                <div className="col">{this.state.menu[menuKey].vendor}</div>
+                                                <div className="col">
 
-                                                {Object.keys(this.state.menu[menuKey]["menuCategories"]).map((menuCat) => {
-                                                    return <div>
-                                                        {this.state.menu[menuKey].menuCategories[menuCat].name}
+                                                    {Object.keys(this.state.menu[menuKey]["menuCategories"]).map((menuCat) => {
+                                                        return <div>
+                                                            {this.state.menu[menuKey].menuCategories[menuCat].name}
+                                                        </div>
+
+                                                    })}
+                                                </div>
+                                                <div className="col">{Object.keys(this.state.menu[menuKey].price).map(priceId => (
+                                                    <div>
+                                                        <div className="btn btn-primary col-5">
+                                                            {this.state.menu[menuKey]["price"][priceId]["size"]}
+                                                        </div>
+                                                        <div className="btn btn-secondary col-4">
+                                                            ₹ {this.state.menu[menuKey]["price"][priceId]["price"]}
+                                                        </div>
                                                     </div>
 
-                                                })}
-                                            </div>
-                                            <div className="col">{Object.keys(this.state.menu[menuKey].price).map(priceId => (
-                                                <div>
-                                                    <div className="btn btn-primary col-5">
-                                                        {this.state.menu[menuKey]["price"][priceId]["size"]}
-                                                    </div>
-                                                    <div className="btn btn-secondary col-4">
-                                                        ₹ {this.state.menu[menuKey]["price"][priceId]["price"]}
-                                                    </div>
+                                                ))
+                                                }
                                                 </div>
 
-                                            ))
-                                            }
-                                            </div>
-                                            <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop" style={{ height: 40 }} onClick={() => { this.addItem(menuKey) }}>Add item</button>
+                                                {(this.props.firebase.authUser != null) ?
+                                                    <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop" style={{ height: 40 }} onClick={() => { this.addItem(menuKey) }}>Add item</button> :
+                                                    <button type="button" className="btn disabled btn-primary" data-toggle="modal" data-target="#staticBackdrop" style={{ height: 40 }}>Login to add item</button>
+                                                }</div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        ))}
+                            ))}
 
+                        </div>
                     </div>
-                </div>
-            </div>);
+                </div>);
         }
+
     }
     fetchDataFromFirebase() {
         var itemArray = [... this.props.itemArray]

@@ -34,53 +34,55 @@ class CardItems extends Component {
 class Mainpage extends Component {
   render() {
     return (
-      <div class="header">
-        <div class="bg">
-          <div class="header-contents">
-            <div class="main">
-              <h2
-                style={{
-                  fontVariant: "small-caps",
-                  top: "50%",
-                  fontSize: "50px",
-                  textShadow: "-2px -2px 5px #000000"
-                }}
-              >
-                EAT.MEET.GREET
+      <div className="card bg-dark">
+        <div class="header">
+          <div class="bg">
+            <div class="header-contents">
+              <div class="main">
+                <h2
+                  style={{
+                    fontVariant: "small-caps",
+                    top: "50%",
+                    fontSize: "50px",
+                    textShadow: "-2px -2px 5px #000000"
+                  }}
+                >
+                  EAT.MEET.GREET
               </h2>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div className="container-fluid">
-          <div className="row">
-            <CardItems
-              title="LA PINOZ"
-              para="All the taste and toppings you want on a pizza, straight from
+          <div className="container-fluid">
+            <div className="row">
+              <CardItems
+                title="LA PINOZ"
+                para="All the taste and toppings you want on a pizza, straight from
                   our oven to your door!"
-              vendor="La Pino'z Pizza"
-              img="lapinoz.jpg"
-            />
+                vendor="La Pino'z Pizza"
+                img="lapinoz.jpg"
+              />
 
-            <CardItems
-              title="BURGRILL"
-              para="Liscensed to grill."
-              vendor="Burgrill"
-              img="burgrillnew.jpg"
-            />
+              <CardItems
+                title="BURGRILL"
+                para="Liscensed to grill."
+                vendor="Burgrill"
+                img="burgrillnew.jpg"
+              />
 
-            <CardItems
-              title="TEA Q"
-              para="Adding Moments of Perfect Sip."
-              vendor="Tea Q"
-              img="teaqnew.jpg"
-            />
-            <CardItems
-              title="SQUARE ONE"
-              para="It's good mood food."
-              vendor="Square One"
-              img="squareonenew.jpg"
-            />
+              <CardItems
+                title="TEA Q"
+                para="Adding Moments of Perfect Sip."
+                vendor="Tea Q"
+                img="teaqnew.jpg"
+              />
+              <CardItems
+                title="SQUARE ONE"
+                para="It's good mood food."
+                vendor="Square One"
+                img="squareonenew.jpg"
+              />
+            </div>
           </div>
         </div>
       </div>
