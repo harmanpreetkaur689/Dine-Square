@@ -3,7 +3,7 @@
   animation: fadeInAnimation ease 5s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
-  color: white;
+  color: rgb(255,255,255);
   font-family: sans-serif;
 }
 @keyframes fadeInAnimation {
@@ -18,8 +18,8 @@
 .bg {
   top: 7%;
   left: 0;
-  background-image: url("./foodbg.jpg");
-  filter: brightness(70%);
+  background-image: url("./newbg.jpg");
+  filter: brightness(100%);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 0px 25%;

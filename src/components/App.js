@@ -102,6 +102,9 @@ class App extends Component {
             <Route path="/Orders">
               <Orders />
             </Route>
+            <Route path="/neworders/:v?" render={(props) => (
+              <NewOrders vendors={this.state.vendors} categories={this.state.categories} sizes={this.state.sizes} {...props} />
+            )} />
             <Route path="/neworders" >
               <NewOrders vendors={this.state.vendors} categories={this.state.categories} sizes={this.state.sizes} />
             </Route>
@@ -123,27 +126,6 @@ class App extends Component {
     );
   }
 }
-/*function App() {
-  return (
-    <Router basename="/">
-      <div>
-        <Navbar />
-        <div>
-          <Switch>
-            <Route path="/contact">
-              <Menu />
-            </Route>
-            <Route path="/orders">
-              <Orders />
-            </Route>
-            <Route exactpath="/">
-              <Home />
-            </Route>
-          </Switch>
-        </div>
-      </div>
-    </Router>
-  );
-}*/
+
 
 export default withFirebase(App);

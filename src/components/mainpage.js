@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 import VendorImg from "./vendorImg";
 class CardItems extends Component {
   render() {
-    let location = "/neworders/?vendor=" + this.props.vendor; //this ? means that everything after this is parameters ok
+    let location = "/neworders/" + this.props.vendor;
     return (
       <div className="col-xs-12 col-md-6 col-xl-6">
-        <div className="card m-1 my-2 ">
+        <div className="card m-1 my-2">
           <VendorImg img={this.props.img} height="300px" />
           <Link
             to={location}
@@ -15,7 +15,7 @@ class CardItems extends Component {
           >
             <div
               class="card-img-overlay text-white"
-              style={{ textShadow: "2px 2px #000000" }}
+              style={{ textShadow: "1px 1px #000000" }}
             >
               <div>
                 <h5 class="card-title d-inline-flex h1">{this.props.title}</h5>
@@ -43,6 +43,7 @@ class Mainpage extends Component {
                   fontVariant: "small-caps",
                   top: "50%",
                   fontSize: "50px",
+                  textShadow: "-2px -2px 5px #000000"
                 }}
               >
                 EAT.MEET.GREET

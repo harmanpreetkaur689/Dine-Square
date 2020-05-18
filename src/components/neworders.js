@@ -28,6 +28,13 @@ class neworders extends Component {
     };
     // 89 and 94 line console ch dekh
     componentDidMount() {
+        console.log(this.props)
+        if (this.props.match.params.v) {
+            let vendors = this.state.vendors;
+            vendors.push(this.props.match.params.v);
+            this.setState({ vendors: vendors, menu: null });
+        }
+        else this.filter();
     }
     filter = () => {
         if (this.state.menu == null) {
@@ -143,10 +150,11 @@ class neworders extends Component {
         console.log(this.state.cart)
         console.log("ACTIVE ITEM")
         console.log(this.state.activeItem)
+        this.filter()
     }
     dataFromCloud = () => {
         if (this.state.menu == null) {
-            this.filter();
+
         }
         else {
             return (<div>
