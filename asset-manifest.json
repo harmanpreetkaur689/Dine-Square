@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/Dine-Square/./static/css/main.2781f0ee.chunk.css",
-    "main.js": "/Dine-Square/./static/js/main.2dd0e24b.chunk.js",
-    "main.js.map": "/Dine-Square/./static/js/main.2dd0e24b.chunk.js.map",
-    "runtime-main.js": "/Dine-Square/./static/js/runtime-main.3c47c42d.js",
-    "runtime-main.js.map": "/Dine-Square/./static/js/runtime-main.3c47c42d.js.map",
-    "static/css/2.47e06e2e.chunk.css": "/Dine-Square/./static/css/2.47e06e2e.chunk.css",
-    "static/js/2.0ba6147c.chunk.js": "/Dine-Square/./static/js/2.0ba6147c.chunk.js",
-    "static/js/2.0ba6147c.chunk.js.map": "/Dine-Square/./static/js/2.0ba6147c.chunk.js.map",
-    "index.html": "/Dine-Square/./index.html",
-    "precache-manifest.ce427aed17e68a4ab0cf120b3ca674a4.js": "/Dine-Square/./precache-manifest.ce427aed17e68a4ab0cf120b3ca674a4.js",
-    "service-worker.js": "/Dine-Square/./service-worker.js",
-    "static/css/2.47e06e2e.chunk.css.map": "/Dine-Square/./static/css/2.47e06e2e.chunk.css.map",
-    "static/css/main.2781f0ee.chunk.css.map": "/Dine-Square/./static/css/main.2781f0ee.chunk.css.map",
-    "static/js/2.0ba6147c.chunk.js.LICENSE": "/Dine-Square/./static/js/2.0ba6147c.chunk.js.LICENSE",
-    "static/media/mainpage.css": "/Dine-Square/./static/media/newbg.e991edcc.jpg"
+    "main.css": "/canteen-ordering-project/static/css/main.9254087a.chunk.css",
+    "main.js": "/canteen-ordering-project/static/js/main.b11b4a1a.chunk.js",
+    "main.js.map": "/canteen-ordering-project/static/js/main.b11b4a1a.chunk.js.map",
+    "runtime-main.js": "/canteen-ordering-project/static/js/runtime-main.35845c68.js",
+    "runtime-main.js.map": "/canteen-ordering-project/static/js/runtime-main.35845c68.js.map",
+    "static/css/2.47e06e2e.chunk.css": "/canteen-ordering-project/static/css/2.47e06e2e.chunk.css",
+    "static/js/2.81c989ca.chunk.js": "/canteen-ordering-project/static/js/2.81c989ca.chunk.js",
+    "static/js/2.81c989ca.chunk.js.map": "/canteen-ordering-project/static/js/2.81c989ca.chunk.js.map",
+    "index.html": "/canteen-ordering-project/index.html",
+    "precache-manifest.9de4e9ca5ff52524a56d78204e37fb87.js": "/canteen-ordering-project/precache-manifest.9de4e9ca5ff52524a56d78204e37fb87.js",
+    "service-worker.js": "/canteen-ordering-project/service-worker.js",
+    "static/css/2.47e06e2e.chunk.css.map": "/canteen-ordering-project/static/css/2.47e06e2e.chunk.css.map",
+    "static/css/main.9254087a.chunk.css.map": "/canteen-ordering-project/static/css/main.9254087a.chunk.css.map",
+    "static/js/2.81c989ca.chunk.js.LICENSE": "/canteen-ordering-project/static/js/2.81c989ca.chunk.js.LICENSE",
+    "static/media/mainpage.css": "/canteen-ordering-project/static/media/newbg.e991edcc.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.3c47c42d.js",
+    "static/js/runtime-main.35845c68.js",
     "static/css/2.47e06e2e.chunk.css",
-    "static/js/2.0ba6147c.chunk.js",
-    "static/css/main.2781f0ee.chunk.css",
-    "static/js/main.2dd0e24b.chunk.js"
+    "static/js/2.81c989ca.chunk.js",
+    "static/css/main.9254087a.chunk.css",
+    "static/js/main.b11b4a1a.chunk.js"
   ]
 }
