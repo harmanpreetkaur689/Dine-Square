@@ -16,7 +16,6 @@ import Mainpage from "./mainpage";
 import SignUp from "./SignUp";
 import Login from "./Login";
 import AddItems from "./AddItems";
-import UltraMenuPage from "./ultraMenuPage";
 
 
 class App extends Component {
@@ -104,7 +103,7 @@ class App extends Component {
               <Orders />
             </Route>
             <Route path="/neworders" >
-              <NewOrders vendors={this.state.vendors} categories={this.state.categories} sizes={this.state.sizes} itemArray={this.state.itemArray} />
+              <NewOrders vendors={this.state.vendors} categories={this.state.categories} sizes={this.state.sizes} />
             </Route>
             <Route path="/Login">
               <Login />
@@ -115,8 +114,8 @@ class App extends Component {
             <Route path="/AddItems">
               <AddItems />
             </Route>
-            <Route path="/ultramenu">
-              <UltraMenuPage />
+            <Route path="/">
+              < Mainpage />
             </Route>
           </Switch>
         </div>
