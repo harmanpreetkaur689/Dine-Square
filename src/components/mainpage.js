@@ -34,7 +34,7 @@ class CardItems extends Component {
 class Mainpage extends Component {
   render() {
     return (
-      <div className="card bg-dark">
+      <div>
         <div class="header">
           <div class="bg">
             <div class="header-contents">
@@ -44,7 +44,7 @@ class Mainpage extends Component {
                     fontVariant: "small-caps",
                     top: "50%",
                     fontSize: "50px",
-                    textShadow: "-2px -2px 5px #000000"
+                    textShadow: "2px 2px 5px #000000"
                   }}
                 >
                   EAT.MEET.GREET
@@ -52,7 +52,8 @@ class Mainpage extends Component {
               </div>
             </div>
           </div>
-
+        </div>
+        <div className="dark">
           <div className="container-fluid">
             <div className="row">
               <CardItems
