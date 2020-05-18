@@ -401,7 +401,7 @@ class neworders extends Component {
             return (
                 <div className="col-4" style={{ top: "15px" }}>
                     <div class="card" style={{ height: "14.3rem" }}>
-                        <div class="card-header">Vendors</div>
+                        <div class="card-header"><h5>Select Vendors</h5></div>
                         <div class="card-body">
                             {Object.keys(this.props.vendors).map(menuCat => {
                                 if (this.props.vendors[menuCat].selected == undefined)
@@ -449,7 +449,7 @@ class neworders extends Component {
                 return (
                     <div className="col-4" style={{ top: "15px" }}>
                         <div class="card">
-                            <div class="card-header">Menu Categories</div>
+                            <div class="card-header"><h5>Select Menu Categories</h5></div>
                             <div class="card-body">
                                 {Object.keys(this.props.categories).map(menuCat => {
                                     var flag = false;
@@ -513,7 +513,7 @@ class neworders extends Component {
         return (
             <div className="col-4" style={{ top: "15px" }}>
                 <div class="card " style={{ height: "14.3rem" }}>
-                    <div class="card-header">Price Range</div>
+                    <div class="card-header" ><h5> Set Price Range</h5></div>
                     <div class="card-body">
                         <input placeholder="min" type="number" size="7" id="min" onChange={this.onChange}></input>
                         <a> - </a>
