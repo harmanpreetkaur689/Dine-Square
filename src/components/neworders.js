@@ -587,26 +587,27 @@ class neworders extends Component {
 
     showModal() {
         {
-            return (
-                <div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true" keyboard="false">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="staticBackdropLabel">{this.modalhead()}</h5>
+            if (this.props.userData != null)
+                return (
+                    <div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true" keyboard="false">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="staticBackdropLabel">{this.modalhead()}</h5>
 
 
-                            </div>
-                            <div class="modal-body">
-                                {this.modalbody()}
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick={() => { this.setState({ activeItem: null }) }}>Close</button>
-                                <button type="button" class="btn btn-primary" data-dismiss="modal" onClick={() => { this.addToCart() }}>Add item</button>
+                                </div>
+                                <div class="modal-body">
+                                    {this.modalbody()}
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick={() => { this.setState({ activeItem: null }) }}>Close</button>
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal" onClick={() => { this.addToCart() }}>Add item</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            );
+                );
         }
     }
 
@@ -614,6 +615,7 @@ class neworders extends Component {
         return (
             <div>
                 <div >
+
                     {this.showModal()}
                 </div>
                 <div className="col">
