@@ -34,20 +34,22 @@ class CardItems extends Component {
 class Mainpage extends Component {
   render() {
     return (
-      <div class="header">
-        <div class="bg">
-          <div class="header-contents">
-            <div class="main">
-              <h2
-                style={{
-                  fontVariant: "small-caps",
-                  top: "50%",
-                  fontSize: "50px",
-                  textShadow: "2px 2px 5px #000000"
-                }}
-              >
-                EAT.MEET.GREET
+      <div>
+        <div class="header">
+          <div class="bg">
+            <div class="header-contents">
+              <div class="main">
+                <h2
+                  style={{
+                    fontVariant: "small-caps",
+                    top: "50%",
+                    fontSize: "50px",
+                    textShadow: "2px 2px 5px #000000"
+                  }}
+                >
+                  EAT.MEET.GREET
               </h2>
+              </div>
             </div>
           </div>
         </div>

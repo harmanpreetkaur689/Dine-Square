@@ -103,7 +103,7 @@ class App extends Component {
               <Orders />
             </Route>
             <Route path="/neworders/:v?" render={(props) => (
-              <NewOrders vendors={this.state.vendors} categories={this.state.categories} sizes={this.state.sizes} {...props} />
+              <NewOrders vendors={this.state.vendors} userData={this.state.userData} categories={this.state.categories} sizes={this.state.sizes} {...props} />
             )} />
             <Route path="/neworders" >
               <NewOrders vendors={this.state.vendors} categories={this.state.categories} sizes={this.state.sizes} />
