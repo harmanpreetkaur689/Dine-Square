@@ -30,35 +30,65 @@ class neworders extends Component {
     // 89 and 94 line console ch dekh
     componentDidMount() {
         console.log("PROPS")
+        this.setState({ vendors: [] })
         console.log(this.props.match.params.v)
+        if (this.state.prevParam == null) {
+            Object.keys(this.props.vendors).map(key => {
+                if (this.props.vendors[key]["name"] == this.props.match.params.v) {
+                    //key1 = key;
+                    this.props.vendors[key].selected = true;
+
+
+                }
+                else {
+                    this.props.vendors[key].selected = undefined;
+                }
+            });
+        }
+        if (this.props.match.params.v && this.state.prevParam != null)
+            Object.keys(this.props.vendors).map(key => {
+                if (this.props.vendors[key]["name"] == this.props.match.params.v) {
+                    //key1 = key;
+                    this.props.vendors[key].selected = true;
+
+
+                }
+                else {
+                    this.props.vendors[key].selected = undefined;
+                }
+
+            });
+
         if (this.props.match.params.v) {
 
-
-
-            this.setState({ vendors: this.state.vendors });
+            this.setState({ prevParam: this.props.match.params.v, vendors: [] });
             let vendors = this.state.vendors;
             vendors.push(this.props.match.params.v);
             this.setState({ vendors: vendors, menu: null });
-            //console.log(this.state.vendors);
+            console.log(this.state.vendors);
             // var key1;
-            /* {
-                 Object.keys(this.props.vendors).map(key => {
-                     if (this.props.vendors[key]["name"] == this.props.match.params.v) {
-                         //key1 = key;
-                         this.props.vendors[key].selected = true;
+            /* Object.keys(this.props.vendors).map(key => {
+                 if (this.props.vendors[key]["name"] == this.props.match.params.v) {
+                     //key1 = key;
+                     this.props.vendors[key].selected = true;
  
  
-                     }
-                   });
-             }*/
+                 }
+                 else {
+                     this.props.vendors[key].selected = false;
+                 }
+             });*/
+
+
 
             // console.log("VENDORS IN Cdm")
             //console.log(this.state.vendors)
             //let h = this.props.vendors;
             //h[key1].selected = true;
-
         }
+
         else this.filter();
+
     }
     filter = () => {
         if (this.state.menu == null) {
@@ -82,10 +112,10 @@ class neworders extends Component {
         }
     }
 
-    addToCart() {
+    addToCart = () => {
         /*console.log("ran")
         var cart = this.state.cart
-
+     
         var activeItem = this.state.activeItem
         // console.log(cart[activeItem])
         if (cart[activeItem] == undefined) {
@@ -93,10 +123,10 @@ class neworders extends Component {
             Object.keys(this.state.menu[this.state.activeItem]["price"]).map(priceId => {
                 var count = parseInt(document.getElementById(priceId).innerHTML)
                 cart[activeItem][priceId] = count
-
+     
             })
             //console.log(cart[activeItem])
-
+     
         }
         else {
             Object.keys(this.state.menu[this.state.activeItem]["price"]).map(priceId => {
@@ -168,13 +198,13 @@ class neworders extends Component {
          console.log("MENU CATEGORIES")
          console.log(this.state.menucategories)
          console.log("ACTIVE ITEM")
-         //this.setState({ itemArray: this.props.itemArray })
+         this.setState({ itemArray: this.props.itemArray })
          console.log(this.state.activeItem)
         console.log("CART")
         console.log(this.state.cart)
         console.log("ACTIVE ITEM")
-        console.log(this.state.activeItem)
-        this.filter()*/
+        console.log(this.state.activeItem)*/
+        this.filter();
     }
     dataFromCloud = () => {
 
@@ -267,7 +297,7 @@ class neworders extends Component {
                     Object.keys(this.props.items[itemArray[i]]["menuCategories"]).map(menuCat => {
                         if (this.props.items[itemArray[i]]["menuCategories"][menuCat]["name"] == this.state.menucategories[j].name) {
                             flag = 1;
-    
+     
                         }
                     })
                 }
