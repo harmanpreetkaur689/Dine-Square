@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/Dine-Square/./precache-manifest.b5080acb57b0dd56bcfe53435e7ea4eb.js"
+  "/Dine-Square/./precache-manifest.d043158581cea98fbeacaaf148d4026a.js"
 );
 
 self.addEventListener('message', (event) => {
