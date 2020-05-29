@@ -2,31 +2,29 @@ import React, { Component } from "react";
 import "./mainpage.css";
 import { Link } from "react-router-dom";
 import VendorImg from "./vendorImg";
+import mainvid from "./mainvid.mp4";
+import newbg from "./newbg.jpg";
 class CardItems extends Component {
   render() {
     let location = "/neworders/" + this.props.vendor;
     return (
+      <div>
+      <center>
       <div className="col-xs-12 col-md-6 col-xl-6">
-        <div className="card m-1 my-2">
-          <VendorImg img={this.props.img} height="300px" />
-          <Link
-            to={location}
-            style={{ textDecoration: "none", color: "black" }}
-          >
-            <div
-              class="card-img-overlay text-white"
-              style={{ textShadow: "1px 1px #000000" }}
-            >
-              <div>
-                <h5 class="card-title d-inline-flex h1">{this.props.title}</h5>
-              </div>
-              <p class="card-text" style={{ height: "48px" }}>
-                {this.props.para}
-              </p>
-            </div>
-          </Link>
-        </div>
-      </div >
+
+      <div class="card" style={{width: "18rem"}}>
+    <VendorImg img={this.props.img} height="300px" width="500px" />
+    <div class="card-body">
+      <h5 class="card-title">{this.props.title}</h5>
+      <p class="card-text">{this.props.para}</p>
+      
+          <Link className=" btn btn-warning" to={location}>Order Now !</Link>
+
+    </div>
+    </div>
+      </div>
+      </center>
+      </div>
     );
   }
 }
@@ -47,19 +45,35 @@ class Mainpage extends Component {
                     textShadow: "2px 2px 5px #000000"
                   }}
                 >
-                  EAT.MEET.GREET
+
+              <video loop autoPlay muted style={{
+
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "100%"
+                    }}>
+                           <source src={mainvid} type="video/mp4" />
+                       </video>
+
               </h2>
+
               </div>
             </div>
           </div>
         </div>
-        <div className="dark">
+
+        <div><hr color="red" /></div>
+        <div align="center" style={{color:"red"}}><h1>FEATURED</h1></div>
+
+<div><hr color="red" /></div>
+        <div className="light">
           <div className="container-fluid">
             <div className="row">
               <CardItems
                 title="LA PINOZ"
-                para="All the taste and toppings you want on a pizza, straight from
-                  our oven to your door!"
+                para="Pizza is Like The Entire Food Pyramid!"
                 vendor="La Pino'z Pizza"
                 img="lapinoz.jpg"
               />
@@ -85,6 +99,7 @@ class Mainpage extends Component {
               />
             </div>
           </div>
+
         </div>
       </div>
     );
