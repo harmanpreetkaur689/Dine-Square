@@ -183,27 +183,7 @@ class neworders extends Component {
         //cart:{psaduvw12453tgr:{hgsdfca6sdf2:12}}
     }
     componentDidUpdate() {
-        /*console.log("MINIMUM")
-        console.log(this.state.minimum)
-        console.log("MAXIMUM")
-        console.log(this.state.maximum)
-         console.log("MENU")
-         console.log(this.state.menu)
-         console.log("ITEMS FROM APP.js")
-         console.log(this.props.items)
-         //console.log("ITEMARRAY FROM APP.js")
-         // console.log(this.props.itemArray)
-         console.log("VENDORS")
-         console.log(this.state.vendors)
-         console.log("MENU CATEGORIES")
-         console.log(this.state.menucategories)
-         console.log("ACTIVE ITEM")
-         this.setState({ itemArray: this.props.itemArray })
-         console.log(this.state.activeItem)
-        console.log("CART")
-        console.log(this.state.cart)
-        console.log("ACTIVE ITEM")
-        console.log(this.state.activeItem)*/
+
         this.filter();
     }
     dataFromCloud = () => {
@@ -273,65 +253,7 @@ class neworders extends Component {
     }
     fetchDataFromFirebase() {
         var itemArray = [... this.props.itemArray]
-        /*var k = 0;
-        if (this.state.vendors.length != 0)
-            for (var j = 0; j < itemArray.length; j++) {
-                var flag = 0;
-                for (var i = 0; i < this.state.vendors.length; i++) {
-                    if (this.props.items[itemArray[j]]["vendor"] == this.state.vendors[i].name) {
-                        flag = 1;
-                        //break;
-                    }
-                }
-                if (flag == 0) {
-                    itemArray.splice(j, 1);
-                    j--;
-                }
-            }
-        if (this.state.menucategories.length != 0) {
-            // var k = 0, 
-            var flag = 0;
-            for (var i = 0; i < itemArray.length; i++) {
-                flag = 0;
-                for (var j = 0; j < this.state.menucategories.length; j++) {
-                    Object.keys(this.props.items[itemArray[i]]["menuCategories"]).map(menuCat => {
-                        if (this.props.items[itemArray[i]]["menuCategories"][menuCat]["name"] == this.state.menucategories[j].name) {
-                            flag = 1;
-     
-                        }
-                    })
-                }
-                if (flag == 0) {
-                    itemArray.splice(i, 1);
-                    i--;
-                }
-                //k++;
-            }
-        }
-        var flag = 0;
-        //console.log(itemArray)
-        if (this.state.minimum != null || this.state.maximum != null)
-            for (var i = 0; i < itemArray.length; i++) {
-                flag = 0;
-                Object.keys(this.props.items[itemArray[i]]["price"]).map((menuCat) => {
-                    if (
-                        (this.state.minimum &&
-                            parseInt(this.state.minimum) <
-                            this.props.items[itemArray[i]]["price"][menuCat]["price"]) ||
-                        (this.state.maximum &&
-                            parseInt(this.state.maximum) >
-                            this.props.items[itemArray[i]]["price"][menuCat]["price"])
-                    ) {
-                        flag = 1;
-                    }
-                });
-                if (flag == 0) {
-                    itemArray.splice(i, 1);
-                    i--;
-                }
-            }
-        console.log("RESULT")
-        console.log(itemArray)*/
+
         return (
             <div >
                 <div className="card bg-light">

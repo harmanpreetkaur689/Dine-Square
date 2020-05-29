@@ -13,9 +13,13 @@ class NavAuth extends Component {
         //console.log(this.props.firebase);
     }
     render() {
+        let location = "/profile";
         return (
             <div>
-                <button className="btn btn-dark disabled">{this.props.username}</button>
+                <Link
+                    to={location}>
+                    <button className="btn btn-dark ">{this.props.username}</button>
+                </Link>
                 <SignOut />
 
             </div>

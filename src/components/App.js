@@ -16,7 +16,7 @@ import Mainpage from "./mainpage";
 import SignUp from "./SignUp";
 import Login from "./Login";
 import AddItems from "./AddItems";
-
+import Profile from "./profile";
 
 class App extends Component {
   state = {
@@ -116,6 +116,12 @@ class App extends Component {
             </Route>
             <Route path="/AddItems">
               <AddItems />
+            </Route>
+            {/* <Route path="/profile" render={(props) => (
+              <Profile authUser={this.state.authUser} {...props} />)
+            } />*/}
+            <Route path="/profile" >
+              <Profile user={this.state.userData} username={this.state.username} />
             </Route>
             <Route path="/">
               < Mainpage />
