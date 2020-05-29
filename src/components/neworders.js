@@ -158,11 +158,9 @@ class neworders extends Component {
                 const sizeCount = sizecount;
                 console.log(sizeCount);
                 this.props.firebase.addToCart(
-
                     JSON.stringify(
                         { itemId: this.state.activeItem, sizeCount: sizeCount }
                     )
-
                 )
                     .then(result => {
 

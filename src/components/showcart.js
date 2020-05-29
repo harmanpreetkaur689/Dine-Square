@@ -3,39 +3,53 @@ import { withFirebase } from "./Firebase";
 import "./showcart.css";
 class Showcart extends Component {
     state = {
-        items: null,
+        cart: null,
         selectedsize: null,
         selectedItem: null
     };
-    componentDidUpdate() { }
-
+    componentDidUpdate() {
+        this.filter()
+    }
+    componentDidMount() {
+        this.filter()
+    }
     filter = () => {
-        if (this.state.items == null) {
-            const selitem =
+        if (this.state.cart == null) {
+            /*const selitem =
                 this.state.selectedItem.length == 0
                     ? null
                     : this.state.selectedItem;
             const categories =
                 this.state.selectedsize.length == 0
                     ? null
-                    : this.state.selectedsize;
+                    : this.state.selectedsize;*/
             //this.setState({ items: null });
             this.props.firebase
-                .showCart(
-
-                )
+                .showCart()
                 .then((result) => {
                     // Read result of the Cloud Function.
                     console.log(result);
-                    this.setState({ items: result.data });
+                    this.setState({ cart: result.data });
                     // ...
                 });
         }
     };
+    price = () => {
+        return this.state.cart ? this.state.cart.price : 0
+    }
     showItems = () => {
-        if (this.state.items == null) {
-            this.filter();
-        }
+        if (this.state.cart)
+            return (<div>
+                {Object.keys(this.state.cart.items).map((itemKey) => (
+
+                    Object.keys(this.state.cart.items[itemKey].price).map((priceKey) => (<div className="d-flex col-12">
+                        <div className="col-6">{this.state.cart.items[itemKey].name} - {this.state.cart.items[itemKey].price[priceKey].size}</div>
+                        <div className="col-3">{this.state.cart.items[itemKey].price[priceKey].qty * this.state.cart.items[itemKey].price[priceKey].price}</div>
+                        <div className="col-3">{this.state.cart.items[itemKey].price[priceKey].qty}</div>
+                    </div>))
+                )
+                )}
+            </div>)
     }
     render() {
         return (
@@ -47,11 +61,11 @@ class Showcart extends Component {
                     <div class="cart-quantity cart-header cart-column">QUANTITY</div>
                 </div>
                 <div class="cart-items">
-
+                    {this.showItems()}
                 </div>
                 <div class="cart-total">
                     <div class="cart-total-title">Total</div>
-                    <span class="cart-total-price">0</span>
+                    <span class="cart-total-price">{this.price()}</span>
                 </div>
                 <button type="button" class="btn btn-info btn-purchase ">PLACE ORDER</button>
             </div>
