@@ -111,11 +111,9 @@ class neworders extends Component {
                 const sizeCount = sizecount;
                 console.log(sizeCount);
                 this.props.firebase.addToCart(
-
                     JSON.stringify(
                         { itemId: this.state.activeItem, sizeCount: sizeCount }
                     )
-
                 )
                     .then(result => {
 
@@ -204,6 +202,63 @@ class neworders extends Component {
         }
 
     }
+    /* fetchDataFromFirebase() {
+         var itemArray = [... this.props.itemArray]
+ 
+         return (
+             <div >
+                 <div className="card bg-light">
+                     <div className="card-body ">
+                         <div className="d-flex">
+                             <div className="col"><h5>Name</h5></div>
+                             <div className="col"><h5>Vendor</h5></div>
+                             <div className="col"><h5>Category</h5></div>
+                             <div className="col"><h5>size and price</h5></div>
+                             <div className=""><h5>Add To Cart</h5></div>
+                         </div>
+                     </div>
+ 
+                     {itemArray.map((value, index) => (
+                         <div className="card bg-dark my-1 mx-1">
+                             <div className="card-body bg-dark">
+ 
+                                 <div className="d-flex">
+                                     <div className="col"> {this.props.items[itemArray[index]].name}</div>
+                                     <div className="col"> {this.props.items[itemArray[index]].vendor}</div>
+                                     <div className="col">{
+                                         Object.keys(this.props.items[itemArray[index]].menuCategories).map(menuId => (
+                                             <div>{this.props.items[itemArray[index]].menuCategories[menuId].name}</div>
+                                         ))
+                                     }</div>
+                                     <div className="col">{Object.keys(this.props.items[itemArray[index]].price).map(priceId => (
+                                         <div>
+                                             <div className="btn btn-primary col-5">
+                                                 {this.props.items[itemArray[index]]["price"][priceId]["size"]}
+                                             </div>
+                                             <div className="btn btn-secondary col-4">
+                                                 ₹ {this.props.items[itemArray[index]]["price"][priceId]["price"]}
+                                             </div>
+                                         </div>
+ 
+                                     ))
+                                     }
+                                     </div>
+ 
+                                     <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop" style={{ height: 40 }} onClick={() => { this.addItem(itemArray[index]) }}>Add item</button>
+                                 </div>
+                             </div>
+                         </div>
+ 
+                     ))
+ 
+                     }
+                 </div>
+                 <div>
+                     {this.addToCartButton()}
+                 </div>
+             </div >
+         );
+     }*/
 
     addToCartButton() {
         if (this.state.itemAdded)
