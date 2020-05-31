@@ -4,12 +4,7 @@ import SignUp from '../SignUp';
 import NavAuth from './NavAuth';
 import { Link } from 'react-router-dom';
 
-/*const Navigation = ({ user, username }) => (
-    <div className="row justify-content-center justify-content-sm-end">
-        {user ? <NavAuth authUser={user} username={username} /> :
-            <NonAuth />}
-    </div>
-)*/
+
 class Navigation extends Component {
     render() {
         return (

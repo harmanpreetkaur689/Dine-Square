@@ -22,12 +22,12 @@ class neworders extends Component {
         buttonClicked: false,
         arrayForSelected: {},
         itemSelected: false,
-        // itemsInCart: [],
+
         cart: {},
         itemAdded: false,
         prevParam: null
     };
-    // 89 and 94 line console ch dekh
+
     componentDidMount() {
         console.log("PROPS")
         this.setState({ vendors: [] })
@@ -35,7 +35,7 @@ class neworders extends Component {
         if (this.state.prevParam == null) {
             Object.keys(this.props.vendors).map(key => {
                 if (this.props.vendors[key]["name"] == this.props.match.params.v) {
-                    //key1 = key;
+
                     this.props.vendors[key].selected = true;
 
 
@@ -48,7 +48,7 @@ class neworders extends Component {
         if (this.props.match.params.v && this.state.prevParam != null)
             Object.keys(this.props.vendors).map(key => {
                 if (this.props.vendors[key]["name"] == this.props.match.params.v) {
-                    //key1 = key;
+
                     this.props.vendors[key].selected = true;
 
 
@@ -66,25 +66,7 @@ class neworders extends Component {
             vendors.push(this.props.match.params.v);
             this.setState({ vendors: vendors, menu: null });
             console.log(this.state.vendors);
-            // var key1;
-            /* Object.keys(this.props.vendors).map(key => {
-                 if (this.props.vendors[key]["name"] == this.props.match.params.v) {
-                     //key1 = key;
-                     this.props.vendors[key].selected = true;
- 
- 
-                 }
-                 else {
-                     this.props.vendors[key].selected = false;
-                 }
-             });*/
 
-
-
-            // console.log("VENDORS IN Cdm")
-            //console.log(this.state.vendors)
-            //let h = this.props.vendors;
-            //h[key1].selected = true;
         }
 
         else this.filter();
@@ -113,28 +95,7 @@ class neworders extends Component {
     }
 
     addToCart = () => {
-        /*console.log("ran")
-        var cart = this.state.cart
-     
-        var activeItem = this.state.activeItem
-        // console.log(cart[activeItem])
-        if (cart[activeItem] == undefined) {
-            cart[activeItem] = {}
-            Object.keys(this.state.menu[this.state.activeItem]["price"]).map(priceId => {
-                var count = parseInt(document.getElementById(priceId).innerHTML)
-                cart[activeItem][priceId] = count
-     
-            })
-            //console.log(cart[activeItem])
-     
-        }
-        else {
-            Object.keys(this.state.menu[this.state.activeItem]["price"]).map(priceId => {
-                var count = parseInt(document.getElementById(priceId).innerHTML) + parseInt(cart[activeItem][priceId])
-                cart[activeItem][priceId] = count
-            })
-        }
-        this.setState({ cart: cart, activeItem: null })*/
+
 
         if (this.state.activeItem != null) {
             var sizecount = {};
@@ -144,17 +105,9 @@ class neworders extends Component {
                     sizecount[priceId] = count
                 }
             })
-            /**
-             * data = {
-             *     <itemId>:{
-             *         <sizeId>:count;
-             *         <sizeId>:count;
-             *     }
-             * }
-             */
-            //console.log(sizecount);
+
             if (sizecount != undefined) {
-                // console.log(data);
+
                 const sizeCount = sizecount;
                 console.log(sizeCount);
                 this.props.firebase.addToCart(
@@ -180,30 +133,10 @@ class neworders extends Component {
 
 
 
-        //cart:{psaduvw12453tgr:{hgsdfca6sdf2:12}}
+
     }
     componentDidUpdate() {
-        /*console.log("MINIMUM")
-        console.log(this.state.minimum)
-        console.log("MAXIMUM")
-        console.log(this.state.maximum)
-         console.log("MENU")
-         console.log(this.state.menu)
-         console.log("ITEMS FROM APP.js")
-         console.log(this.props.items)
-         //console.log("ITEMARRAY FROM APP.js")
-         // console.log(this.props.itemArray)
-         console.log("VENDORS")
-         console.log(this.state.vendors)
-         console.log("MENU CATEGORIES")
-         console.log(this.state.menucategories)
-         console.log("ACTIVE ITEM")
-         this.setState({ itemArray: this.props.itemArray })
-         console.log(this.state.activeItem)
-        console.log("CART")
-        console.log(this.state.cart)
-        console.log("ACTIVE ITEM")
-        console.log(this.state.activeItem)*/
+
         this.filter();
     }
     dataFromCloud = () => {
@@ -271,121 +204,6 @@ class neworders extends Component {
         }
 
     }
-    fetchDataFromFirebase() {
-        var itemArray = [... this.props.itemArray]
-        /*var k = 0;
-        if (this.state.vendors.length != 0)
-            for (var j = 0; j < itemArray.length; j++) {
-                var flag = 0;
-                for (var i = 0; i < this.state.vendors.length; i++) {
-                    if (this.props.items[itemArray[j]]["vendor"] == this.state.vendors[i].name) {
-                        flag = 1;
-                        //break;
-                    }
-                }
-                if (flag == 0) {
-                    itemArray.splice(j, 1);
-                    j--;
-                }
-            }
-        if (this.state.menucategories.length != 0) {
-            // var k = 0, 
-            var flag = 0;
-            for (var i = 0; i < itemArray.length; i++) {
-                flag = 0;
-                for (var j = 0; j < this.state.menucategories.length; j++) {
-                    Object.keys(this.props.items[itemArray[i]]["menuCategories"]).map(menuCat => {
-                        if (this.props.items[itemArray[i]]["menuCategories"][menuCat]["name"] == this.state.menucategories[j].name) {
-                            flag = 1;
-     
-                        }
-                    })
-                }
-                if (flag == 0) {
-                    itemArray.splice(i, 1);
-                    i--;
-                }
-                //k++;
-            }
-        }
-        var flag = 0;
-        //console.log(itemArray)
-        if (this.state.minimum != null || this.state.maximum != null)
-            for (var i = 0; i < itemArray.length; i++) {
-                flag = 0;
-                Object.keys(this.props.items[itemArray[i]]["price"]).map((menuCat) => {
-                    if (
-                        (this.state.minimum &&
-                            parseInt(this.state.minimum) <
-                            this.props.items[itemArray[i]]["price"][menuCat]["price"]) ||
-                        (this.state.maximum &&
-                            parseInt(this.state.maximum) >
-                            this.props.items[itemArray[i]]["price"][menuCat]["price"])
-                    ) {
-                        flag = 1;
-                    }
-                });
-                if (flag == 0) {
-                    itemArray.splice(i, 1);
-                    i--;
-                }
-            }
-        console.log("RESULT")
-        console.log(itemArray)*/
-        return (
-            <div >
-                <div className="card bg-light">
-                    <div className="card-body ">
-                        <div className="d-flex">
-                            <div className="col"><h5>Name</h5></div>
-                            <div className="col"><h5>Vendor</h5></div>
-                            <div className="col"><h5>Category</h5></div>
-                            <div className="col"><h5>size and price</h5></div>
-                            <div className=""><h5>Add To Cart</h5></div>
-                        </div>
-                    </div>
-
-                    {itemArray.map((value, index) => (
-                        <div className="card bg-dark my-1 mx-1">
-                            <div className="card-body bg-dark">
-
-                                <div className="d-flex">
-                                    <div className="col"> {this.props.items[itemArray[index]].name}</div>
-                                    <div className="col"> {this.props.items[itemArray[index]].vendor}</div>
-                                    <div className="col">{
-                                        Object.keys(this.props.items[itemArray[index]].menuCategories).map(menuId => (
-                                            <div>{this.props.items[itemArray[index]].menuCategories[menuId].name}</div>
-                                        ))
-                                    }</div>
-                                    <div className="col">{Object.keys(this.props.items[itemArray[index]].price).map(priceId => (
-                                        <div>
-                                            <div className="btn btn-primary col-5">
-                                                {this.props.items[itemArray[index]]["price"][priceId]["size"]}
-                                            </div>
-                                            <div className="btn btn-secondary col-4">
-                                                ₹ {this.props.items[itemArray[index]]["price"][priceId]["price"]}
-                                            </div>
-                                        </div>
-
-                                    ))
-                                    }
-                                    </div>
-
-                                    <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop" style={{ height: 40 }} onClick={() => { this.addItem(itemArray[index]) }}>Add item</button>
-                                </div>
-                            </div>
-                        </div>
-
-                    ))
-
-                    }
-                </div>
-                <div>
-                    {this.addToCartButton()}
-                </div>
-            </div >
-        );
-    }
 
     addToCartButton() {
         if (this.state.itemAdded)
@@ -397,8 +215,7 @@ class neworders extends Component {
     }
     addItem(x) {
         //this.setState({ activeItem: null })
-        this.setState({ activeItem: x }) //Chall reha, mgr jdo tak oh update hunda state ch ohto pehla aapa print kara taa print nhi hoya
-        //addItem kr ki reha, cart ch add kr reha? yesss
+        this.setState({ activeItem: x })
     }
     showData() {
         // if (this.state.buttonClicked == true)

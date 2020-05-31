@@ -6,9 +6,6 @@ import SignOut from '../SignOut';
 import Orders from '../orders';
 
 class NavAuth extends Component {
-    /*  constructor(props) {
-          super(props);
-      }*/
     componentDidUpdate() {
         //console.log(this.props.firebase);
     }

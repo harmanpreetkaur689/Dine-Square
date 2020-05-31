@@ -68,7 +68,7 @@ class SignInFormBase extends Component {
                             type="submit"
                         >
                             Login
-            </button>
+                        </button>
 
                         {error && <p>{error.message}</p>}
                     </div>

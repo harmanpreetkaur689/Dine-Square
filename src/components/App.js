@@ -16,16 +16,19 @@ import Mainpage from "./mainpage";
 import SignUp from "./SignUp";
 import Login from "./Login";
 import AddItems from "./AddItems";
+import OrderConfirmed from "./orderConfirmed";
 
 
 class App extends Component {
   state = {
     userData: null,
+    uid: null,
     username: null,
     items: {},
     vendors: {},
     categories: {},
     sizes: {},
+    users: {},
     itemArray: []
   };
   /**
@@ -57,6 +60,7 @@ class App extends Component {
     this.fetchMenuCategories();
     this.fetchSizeCategories();
 
+
   }
   fetchUserData = () => {
     this.props.firebase.auth.onAuthStateChanged((authUser) => {
@@ -84,7 +88,7 @@ class App extends Component {
     //console.log(this.state.userData.email);
 
     this.fetchUserName();
-    console.log(this.props.firebase.auth.username);
+    //console.log(this.props.firebase.auth.username);
   }
   componentDidMount() {
     this.fetchData();
@@ -116,6 +120,9 @@ class App extends Component {
             </Route>
             <Route path="/AddItems">
               <AddItems />
+            </Route>
+            <Route path="/orderConfirmed">
+              <OrderConfirmed user={this.state.userData} username={this.state.username} />
             </Route>
             <Route path="/">
               < Mainpage />
