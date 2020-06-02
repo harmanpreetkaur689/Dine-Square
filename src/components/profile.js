@@ -2,17 +2,26 @@ import React, { Component } from "react";
 import Showcart from "./showcart";
 import userimg from "./userlogo2.png";
 import Mainpage from "./mainpage";
+import { withFirebase } from "./Firebase";
 class Profile extends Component {
     state = {
         user: null,
-        userdata: null,
+        userdata: null
+        // balance: null
     }
     constructor(props) {
         super(props);
     }
 
     componentDidUpdate() {
-        console.log(this.props.user)
+
+
+
+        // this.setState({ balance: a })
+        //console.log(this.state.balance);
+
+
+
         if (this.props.user != this.state.user) {
             this.setState({ user: this.props.user })
         }
@@ -21,8 +30,19 @@ class Profile extends Component {
         }
     }
     componentDidMount() {
+        /* if (this.state.user != null) {
+             this.props.firebase.db.ref("users/" + this.props.user.uid + "/balance/")
+                 .once("value")
+                 .then((snapshot) => {
+                     const balance = snapshot.val();
+                     //this.setState({ balance: balance })
+                     console.log(balance);
+                 })
+         }*/
+
         if (this.props.user != this.state.user) {
             this.setState({ user: this.props.user })
+
         }
         if (this.props.username != this.state.username) {
             this.setState({ username: this.props.username })
@@ -38,6 +58,7 @@ class Profile extends Component {
                             <h5 class="card-title">Welcome User</h5>
                             <p class="card-text">Personalize your cart here. </p>
                         </div>
+                        <div className="btn btn-danger">Balance: {this.props.balance}</div>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">Username: {this.state.username} </li>
                             <li class="list-group-item">UserEmail:  {this.state.user.email}</li>
@@ -52,4 +73,4 @@ class Profile extends Component {
         else return (<div><Mainpage /></div>)
     }
 }
-export default Profile;
+export default withFirebase(Profile);

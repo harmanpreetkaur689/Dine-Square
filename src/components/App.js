@@ -28,7 +28,8 @@ class App extends Component {
     categories: {},
     sizes: {},
     users: {},
-    itemArray: []
+    itemArray: [],
+    balance: null
   };
   /**
    * @summary
@@ -78,7 +79,7 @@ class App extends Component {
           const user =
             (snapshot.val() && snapshot.val().username) || "Anonymous";
           if (this.state.username != user) {
-            this.setState({ username: user });
+            this.setState({ username: user, balance: snapshot.val().balance });
           }
         });
     }
@@ -124,7 +125,7 @@ class App extends Component {
               <Profile authUser={this.state.authUser} {...props} />)
             } />*/}
             <Route path="/profile" >
-              <Profile user={this.state.userData} username={this.state.username} />
+              <Profile user={this.state.userData} username={this.state.username} balance={this.state.balance} />
             </Route>
             <Route path="/">
               < Mainpage />

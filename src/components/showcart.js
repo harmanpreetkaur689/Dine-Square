@@ -8,7 +8,8 @@ class Showcart extends Component {
         selectedItem: null,
         activeItemKey: null,
         activeItemPriceKey: null,
-        toDelete: false
+        toDelete: false,
+        orderConfirmed: false
     };
     componentDidUpdate() {
         this.filter()
@@ -18,15 +19,6 @@ class Showcart extends Component {
     }
     filter = () => {
         if (this.state.cart == null) {
-            /*const selitem =
-                this.state.selectedItem.length == 0
-                    ? null
-                    : this.state.selectedItem;
-            const categories =
-                this.state.selectedsize.length == 0
-                    ? null
-                    : this.state.selectedsize;*/
-            //this.setState({ items: null });
             this.props.firebase
                 .showCart()
                 .then((result) => {
@@ -52,7 +44,6 @@ class Showcart extends Component {
             b--;
             console.log("b in decrement")
             console.log(b)
-            //this.props.items[this.state.activeItem]["price"][priceId]["size"]["count"] = b;
             document.getElementById(h).innerHTML = b.toString();
 
         }
@@ -67,7 +58,6 @@ class Showcart extends Component {
         b++;
         console.log("b in increment")
         console.log(b)
-        //this.props.items[this.state.activeItem]["price"][priceId]["size"]["count"] = b;
         document.getElementById(h).innerHTML = b.toString();
 
     }
@@ -86,20 +76,10 @@ class Showcart extends Component {
                                 <div className="col-3"><h5> ₹ {this.state.cart.items[itemKey].price[priceKey].qty * this.state.cart.items[itemKey].price[priceKey].price}</h5></div>
                                 <h5 className="col-3" >{this.state.cart.items[itemKey].price[priceKey].qty}</h5>
                                 <div className="col-2">
-                                    {/*<div>
-                                        <div className="btn btn-secondary col-4" onClick={() => { this.decrementValue(priceKey) }}>
-                                            -
-                                        </div>
-                                        <div className="btn btn-danger col-4">
-                                            delete
-                                         </div>
-                                        <div className="btn btn-secondary col-4" onClick={() => { this.incrementValue(priceKey) }}>
-                                            +
-                                        </div>
-                                    </div>*/}
-                                    <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop" style={{ height: 40 }} onClick={() => { this.addItem(itemKey, priceKey) }}>
-                                        EDIT ITEM
-                                    </button>
+                                    {(this.state.orderConfirmed == false) ?
+                                        <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop" style={{ height: 40 }} onClick={() => { this.addItem(itemKey, priceKey) }}>
+                                            EDIT ITEM
+                                    </button> : <div></div>}
                                 </div>
 
                             </div>))}
@@ -110,8 +90,6 @@ class Showcart extends Component {
             </div>)
     }
     addItem(x, y) {
-        //this.setState({ activeItem: null })
-
         this.setState({ activeItemKey: x, activeItemPriceKey: y })
     }
     modalhead() {
@@ -141,27 +119,7 @@ class Showcart extends Component {
                     delete Item
                                          </div>
             </div>
-        /*if (this.state.activeItem)
-            return (
-                <div className="col">
-                    {Object.keys(this.state.menu[this.state.activeItem]["price"]).map(priceId => {
-                        return (
-                            <div className="row" >
-                                <div class="btn-group col-12" role="group" aria-label="Basic example" style={{ margintop: "10%" }}>
-                                    <button type="button" class="btn btn-primary col-4">{this.state.menu[this.state.activeItem]["price"][priceId]["size"]}</button>
-                                    <button type="button" class="btn btn-secondary disabled">₹ {this.state.menu[this.state.activeItem]["price"][priceId]["price"]}</button>
 
-                                    <button type="button" class="btn btn-dark" onClick={() => { this.decrementValue(priceId) }}>-</button>
-                                    <button type="button" class="btn btn-light" id={priceId}>0</button>
-                                    <button type="button" class="btn btn-dark" onClick={() => { this.incrementValue(priceId) }}>+</button>
-
-                                </div>
-
-                            </div>);
-                    })
-                    }
-                </div>
-            )*/
     }
     changesInCart() {
         if (this.state.toDelete == true) {
@@ -170,12 +128,6 @@ class Showcart extends Component {
         }
         if (this.state.activeItemPriceKey != null) {
             var sizecount = {};
-            /*Object.keys(this.state.cart.items[this.state.activeItemKey]["price"]).map(priceId => {
-                var count = parseInt(document.getElementById(priceId).innerHTML)
-                if (count != 0) {
-                    sizecount[priceId] = count
-                }
-            })*/
             sizecount[this.state.activeItemPriceKey] =
                 document.getElementById(this.state.activeItemPriceKey).innerHTML - this.state.cart.items[this.state.activeItemKey]["price"][this.state.activeItemPriceKey]["qty"]
             if (sizecount != undefined) {
@@ -223,6 +175,17 @@ class Showcart extends Component {
             </div>
         );
     }
+    showPopUp() {
+        if (this.state.orderConfirmed == false) {
+            if (window.confirm("Do you want to confirm the order?")) {
+                this.setState({ orderConfirmed: true })
+                document.getElementById('placeOrderBtn').innerHTML = "WAITING FOR RESPONSE...";
+            }
+            else {
+
+            }
+        }
+    }
     render() {
         return (
             <div class="container ">
@@ -247,7 +210,7 @@ class Showcart extends Component {
                         <div class="cart-total-title">Total</div>
                         <span class="cart-total-price"><h5> ₹ {this.price()}</h5></span>
                     </div>
-                    <button type="button" class="btn btn-info btn-purchase " >PLACE ORDER</button>
+                    <button type="button" class="btn btn-info btn-purchase " id="placeOrderBtn" onClick={() => { this.showPopUp() }}>PLACE ORDER</button>
                 </div>
             </div>
         );

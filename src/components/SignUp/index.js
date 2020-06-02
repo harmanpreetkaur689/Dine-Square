@@ -7,6 +7,7 @@ const INITIAL_STATE = {
     email: "",
     passwordOne: "",
     passwordTwo: "",
+    balance: 0,
     error: null,
 };
 
@@ -16,7 +17,7 @@ class SignUpFormBase extends Component {
         this.state = { ...INITIAL_STATE };
     }
     onSubmit = (event) => {
-        const { username, email, passwordOne } = this.state;
+        const { username, email, passwordOne, balance } = this.state;
         this.props.firebase
             .doCreateUserWithEmailAndPassword(email, passwordOne)
             .then((authUser) => {
@@ -25,6 +26,7 @@ class SignUpFormBase extends Component {
                     username,
                     email,
                     passwordOne,
+                    balance
                 });
                 this.props.history.push("/Mainpage");
             })
