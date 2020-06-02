@@ -13,9 +13,8 @@ class Profile extends Component {
         super(props);
     }
 
+
     componentDidUpdate() {
-
-
 
         // this.setState({ balance: a })
         //console.log(this.state.balance);

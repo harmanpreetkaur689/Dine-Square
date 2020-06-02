@@ -275,6 +275,7 @@ class AddItems extends Component {
   };
   sendItem = () => {
     var name = document.getElementById("itemName").value;
+    var time = document.getElementById("")
     var vendor = this.state.selectedVendor;
     var veg = document.getElementById("veg").checked;
     var categories = this.state.selectedCategories;
@@ -360,7 +361,7 @@ class AddItems extends Component {
                             <div className="d-inline-flex bg-light rounded text-muted px-2">
                               {
                                 this.state.items[item]["value"][
-                                  "menuCategories"
+                                "menuCategories"
                                 ][category]["name"]
                               }
                             </div>
@@ -376,14 +377,14 @@ class AddItems extends Component {
                               <div className="col-6 bg-primary rounded-left text-white px-2">
                                 {
                                   this.state.items[item]["value"]["price"][
-                                    size
+                                  size
                                   ]["size"]
                                 }
                               </div>
                               <div className="col-6 bg=primary flex-grow-1 rounded-right  text-black bg-light px-2">
                                 {
                                   this.state.items[item]["value"]["price"][
-                                    size
+                                  size
                                   ]["price"]
                                 }
                               </div>
@@ -474,6 +475,16 @@ class AddItems extends Component {
                 <input
                   className="col-12"
                   id="itemName"
+                  type="text"
+                  placeholder="Name of item..."
+                ></input>
+              </div>
+              {/* -----Time here----- */}
+              <div className="border-top mt-2">
+                <div className="font-weight-bold">Estimated Time</div>
+                <input
+                  className="col-12"
+                  id="itemTime"
                   type="text"
                   placeholder="Name of item..."
                 ></input>

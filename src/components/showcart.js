@@ -11,6 +11,19 @@ class Showcart extends Component {
         toDelete: false,
         orderConfirmed: false
     };
+    placeorder = () => {
+        var otp = this.otp();
+        this.props.firebase.placeOrder(JSON.stringify({ otp: otp })).then((res) => {
+            console.log("placed order");
+            alert("placed Order");
+        });
+
+    }
+    otp = () => {
+        var otp = Math.random() * 10000;
+        otp = Math.floor(otp);
+        return otp;
+    }
     componentDidUpdate() {
         this.filter()
     }
@@ -210,7 +223,7 @@ class Showcart extends Component {
                         <div class="cart-total-title">Total</div>
                         <span class="cart-total-price"><h5> ₹ {this.price()}</h5></span>
                     </div>
-                    <button type="button" class="btn btn-info btn-purchase " id="placeOrderBtn" onClick={() => { this.showPopUp() }}>PLACE ORDER</button>
+                    <button type="button" class="btn btn-info btn-purchase " id="placeOrderBtn" onClick={() => { this.placeorder() }}>PLACE ORDER</button>
                 </div>
             </div>
         );
