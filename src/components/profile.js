@@ -32,7 +32,7 @@ class Profile extends Component {
         if (this.state.user && this.state.username)
             return (
                 <div className="container-fluid row">
-                    <div class="card col-2" >
+                    <div class="card col-3" >
                         <img src={userimg} class="card-img-top" alt="..." />
                         <div class="card-body">
                             <h5 class="card-title">Welcome User</h5>
@@ -44,7 +44,7 @@ class Profile extends Component {
 
                         </ul>
                     </div>
-                    <div className="col-10">
+                    <div className="col-9">
                         <Showcart />
                     </div>
                 </div>
