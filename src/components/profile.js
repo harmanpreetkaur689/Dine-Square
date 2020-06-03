@@ -3,10 +3,12 @@ import Showcart from "./showcart";
 import userimg from "./userlogo2.png";
 import Mainpage from "./mainpage";
 import { withFirebase } from "./Firebase";
+import PreviousOrders from "./previousOrders"
 class Profile extends Component {
     state = {
         user: null,
-        userdata: null
+        userdata: null,
+        currentOrder: true
         // balance: null
     }
     constructor(props) {
@@ -58,6 +60,8 @@ class Profile extends Component {
                             <p class="card-text">Personalize your cart here. </p>
                         </div>
                         <div className="btn btn-danger">Balance: {this.props.balance}</div>
+                        {this.state.currentOrder ? <button className="btn btn-primary mt1" onClick={() => { this.setState({ currentOrder: false }) }}>Show Previous Orders</button> : <button className="btn btn-primary mt1" onClick={() => { this.setState({ currentOrder: false }) }}>Show Previous Orders</button>}
+
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">Username: {this.state.username} </li>
                             <li class="list-group-item">UserEmail:  {this.state.user.email}</li>
@@ -65,7 +69,7 @@ class Profile extends Component {
                         </ul>
                     </div>
                     <div className="col-9">
-                        <Showcart />
+                        {this.state.currentOrder ? <Showcart /> : <PreviousOrders user={this.state.user} />}
                     </div>
                 </div>
             );
