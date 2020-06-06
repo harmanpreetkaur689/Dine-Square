@@ -12,7 +12,14 @@ class Showcart extends Component {
         orderConfirmed: false
     };
     placeorder = () => {
+        /* if (this.props.balance < this.state.cart.price) {
+      alert("Not enough balance")
+      return
+  }*/
         var otp = this.otp();
+        //var updates = {}
+        //updates["users/" + this.props.user.uid + "/balance"] = this.props.balance - this.state.cart.price;
+        //this.props.firebase.db.ref().update(updates)
         this.props.firebase.placeOrder(JSON.stringify({ otp: otp })).then((res) => {
             console.log("placed order");
             alert("placed Order");
@@ -92,7 +99,7 @@ class Showcart extends Component {
                                     {(this.state.orderConfirmed == false) ?
                                         <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop" style={{ height: 40 }} onClick={() => { this.addItem(itemKey, priceKey) }}>
                                             EDIT ITEM
-                                    </button> : <div></div>}
+                             </button> : <div></div>}
                                 </div>
 
                             </div>))}
@@ -121,16 +128,16 @@ class Showcart extends Component {
             return <div>
                 <div className="btn btn-secondary col-4" onClick={() => { this.decrementValue(this.state.activeItemPriceKey) }}>
                     -
-                                        </div>
+                                 </div>
                 <div className="btn btn-primary col-4" id={this.state.activeItemPriceKey}>
                     {this.state.cart.items[this.state.activeItemKey].price[this.state.activeItemPriceKey].qty}
                 </div>
                 <div className="btn btn-secondary col-4" onClick={() => { this.incrementValue(this.state.activeItemPriceKey) }}>
                     +
-                                        </div>
+                                 </div>
                 <div className="btn btn-danger col-4" onClick={() => { this.setState({ toDelete: true }) }}>
                     delete Item
-                                         </div>
+                                  </div>
             </div>
 
     }
@@ -200,6 +207,10 @@ class Showcart extends Component {
         }
     }
     render() {
+        console.log(this.state)
+        console.log(this.props)
+        if (this.state.cart)
+            console.log(this.props.balance - this.state.cart.price)
         return (
             <div class="container ">
                 <div>

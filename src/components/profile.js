@@ -69,7 +69,7 @@ class Profile extends Component {
                         </ul>
                     </div>
                     <div className="col-9">
-                        {this.state.currentOrder ? <Showcart /> : <PreviousOrders user={this.state.user} />}
+                        {this.state.currentOrder ? <Showcart user={this.state.user} balance={this.props.balance} /> : <PreviousOrders user={this.state.user} />}
                     </div>
                 </div>
             );
