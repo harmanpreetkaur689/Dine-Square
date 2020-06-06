@@ -28,7 +28,7 @@ class neworders extends Component {
         prevParam: null
     };
 
-    componentDidMount() {
+    componentDidUpdate() {
         console.log("PROPS")
         this.setState({ vendors: [] })
         console.log(this.props.match.params.v)
@@ -148,10 +148,10 @@ class neworders extends Component {
                     <div className="card shadow bg-white rounded ">
                         <div className="card-body ">
                             <div className="d-flex">
-                                <div className="col"><h5>Name</h5></div>
-                                <div className="col"><h5>Vendor</h5></div>
-                                <div className="col"><h5>Category</h5></div>
-                                <div className="col"><h5>size and price</h5></div>
+                                <div className="col-3"><h5>Name</h5></div>
+                                <div className="col-2"><h5>Vendor</h5></div>
+                                <div className="col-2"><h5>Category</h5></div>
+                                <div className="col-3"><h5>size and price</h5></div>
                                 <div className=""><h5>Add To Cart</h5></div>
                             </div>
                         </div>
@@ -162,9 +162,9 @@ class neworders extends Component {
                                     <div className="card bg-light">
                                         <div className="card-body ">
                                             <div className="d-flex">
-                                                <div className="col">{this.state.menu[menuKey].name}</div>
-                                                <div className="col">{this.state.menu[menuKey].vendor}</div>
-                                                <div className="col">
+                                                <div className="col-3">{this.state.menu[menuKey].name}</div>
+                                                <div className="col-2">{this.state.menu[menuKey].vendor}</div>
+                                                <div className="col-2">
 
                                                     {Object.keys(this.state.menu[menuKey]["menuCategories"]).map((menuCat) => {
                                                         return <div>
@@ -173,7 +173,7 @@ class neworders extends Component {
 
                                                     })}
                                                 </div>
-                                                <div className="col">{Object.keys(this.state.menu[menuKey].price).map(priceId => (
+                                                <div className="col-3">{Object.keys(this.state.menu[menuKey].price).map(priceId => (
                                                     <div>
                                                         <div className="btn btn-primary col-5">
                                                             {this.state.menu[menuKey]["price"][priceId]["size"]}
@@ -188,7 +188,7 @@ class neworders extends Component {
                                                 </div>
 
                                                 {(this.props.userData != null) ?
-                                                    <button type="button" className="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop" style={{ height: 40 }} onClick={() => { this.addItem(menuKey) }}>Add item</button> :
+                                                    <div>{(this.state.menu[menuKey]["enabled"] == true) ? <button type="button" className=" btn btn-primary" data-toggle="modal" data-target="#staticBackdrop" style={{ height: 40 }} onClick={() => { this.addItem(menuKey) }}>Add item</button> : <div className=" btn disabled btn-primary">Item unavaliable</div>} </div> :
                                                     <button type="button" className="btn disabled btn-primary" data-toggle="modal" data-target="#staticBackdrop" style={{ height: 40 }}>Login to add item</button>
                                                 }</div>
                                         </div>
