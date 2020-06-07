@@ -24,7 +24,7 @@ class PreviousOrders extends Component {
             console.log(this.props)
             return <div className="col-12">
 
-                {Object.keys(this.state.prevCart).map((cartId) => (
+                {Object.keys(this.state.prevCart).reverse().map((cartId) => (
                     <div className="col-12 m-2 shadow rounded">
                         <div className="h5">time:</div><div>{this.state.prevCart[cartId].orderPlacedAt}</div>
                         <div className="h5">otp:</div><div>{this.state.prevCart[cartId].otp}</div>
