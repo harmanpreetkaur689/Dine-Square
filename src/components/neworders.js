@@ -28,7 +28,7 @@ class neworders extends Component {
         prevParam: null
     };
 
-    componentDidUpdate() {
+    componentDidMount() {
         console.log("PROPS")
         this.setState({ vendors: [] })
         console.log(this.props.match.params.v)
