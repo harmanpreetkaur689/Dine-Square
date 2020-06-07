@@ -11,12 +11,18 @@ class NavAuth extends Component {
     }
     render() {
         let location = "/profile";
+        let loc = "/neworders";
         return (
             <div>
+                <Link
+                    to={loc}>
+                    <button className="btn btn-dark ">New Order</button>
+                </Link>
                 <Link
                     to={location}>
                     <button className="btn btn-dark ">{this.props.username}</button>
                 </Link>
+
                 <SignOut />
 
             </div>

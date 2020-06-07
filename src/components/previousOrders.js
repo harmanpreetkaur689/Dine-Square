@@ -31,11 +31,8 @@ class PreviousOrders extends Component {
                         {Object.keys(this.state.prevCart[cartId].items).map((itemKey) => (
                             <div>
                                 {Object.keys(this.state.prevCart[cartId].items[itemKey]).map((priceKey) => (
-
-                                    <div className="card m-1">
-                                        {this.state.public.items[itemKey].name} ( {this.state.public.sizeCategories[priceKey]} x {this.state.prevCart[cartId].items[itemKey][priceKey]["qty"]})
-                                        <div>{this.state.prevCart[cartId].items[itemKey][priceKey]["ready"] == true ? <div className="btn disabled btn-primary ">Item Ready</div> : <div className="btn disabled btn-danger" >Item Not Ready</div>}</div>
-
+                                    <div>
+                                        {this.state.public.items[itemKey].name} ( {this.state.public.sizeCategories[priceKey]} x {this.state.prevCart[cartId].items[itemKey][priceKey].qty} )
                                     </div>
                                 ))}
                             </div>

@@ -60,7 +60,7 @@ class Profile extends Component {
                             <p class="card-text">Personalize your cart here. </p>
                         </div>
                         <div className="btn btn-danger">Balance: {this.props.balance}</div>
-                        {this.state.currentOrder ? <button className="btn btn-primary mt1" onClick={() => { this.setState({ currentOrder: false }) }}>Show Previous Orders</button> : <button className="btn btn-primary mt1" onClick={() => { this.setState({ currentOrder: false }) }}>Show Previous Orders</button>}
+                        {this.state.currentOrder == true ? <button className="btn btn-primary mt1" onClick={() => { this.setState({ currentOrder: false }) }}>Show Previous Orders</button> : <button className="btn btn-primary mt1" onClick={() => { this.setState({ currentOrder: true }) }}>Show current cart</button>}
 
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">Username: {this.state.username} </li>
@@ -68,8 +68,8 @@ class Profile extends Component {
 
                         </ul>
                     </div>
-                    <div className="card col-9">
-                        {this.state.currentOrder ? <Showcart /> : <PreviousOrders user={this.state.user} />}
+                    <div className="col-9">
+                        {this.state.currentOrder ? <Showcart user={this.state.user} balance={this.props.balance} /> : <PreviousOrders user={this.state.user} />}
                     </div>
                 </div>
             );
