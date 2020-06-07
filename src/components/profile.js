@@ -68,7 +68,7 @@ class Profile extends Component {
 
                         </ul>
                     </div>
-                    <div className="col-9">
+                    <div className="card col-9">
                         {this.state.currentOrder ? <Showcart /> : <PreviousOrders user={this.state.user} />}
                     </div>
                 </div>
