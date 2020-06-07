@@ -32,7 +32,7 @@ class PreviousOrders extends Component {
                             <div>
                                 {Object.keys(this.state.prevCart[cartId].items[itemKey]).map((priceKey) => (
                                     <div>
-                                        {this.state.public.items[itemKey].name} ( {this.state.public.sizeCategories[priceKey]} x {this.state.prevCart[cartId].items[itemKey][priceKey]} )
+                                        {this.state.public.items[itemKey].name} ( {this.state.public.sizeCategories[priceKey]} x {this.state.prevCart[cartId].items[itemKey][priceKey].qty} )
                                     </div>
                                 ))}
                             </div>

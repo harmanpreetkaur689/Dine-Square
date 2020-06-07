@@ -8,8 +8,8 @@ class Navbar extends Component {
     return (
       <div>
 
-        <div class="d-flex bd-highlight col-12" style={{ backgroundColor: "#c9321e" }}  >
-          <div class="text-danger bd-highlight font-weight-bold navbar-brand pt-2"><img src={logo} height="70px" />   </div>
+        <div class="d-flex bd-highlight col-12" style={{ backgroundColor: "grey" }}   >
+          <div class="text-danger bd-highlight font-weight-bold navbar-brand pt-2"><img src={logo} height="90px" />   </div>
           {/* <div class="p-1 bd-highlight"><button type="button" class="btn btn-danger">ALL ITEMS</button></div>*/}
           <div class="ml-auto p-1 bd-highlight"><Navigation user={this.props.user} username={this.props.username}></Navigation></div>
 
