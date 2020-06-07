@@ -133,7 +133,7 @@ class neworders extends Component {
 
 
     }
-    componentDidUpdate() {
+    componentDidMount() {
 
         this.filter();
     }
